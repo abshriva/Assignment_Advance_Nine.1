@@ -1,0 +1,38 @@
+<div class="well well-lg">
+  <form #f="ngForm" (ngSubmit)="onSave(f.value)">
+    <div class="form-group">
+      <label for="employeeId">EmployeeId</label>
+      <input type="number"
+      class="form-control" 
+      id="employeeId" 
+      name="id" 
+      [(ngModel)]="employee.id" 
+      #myEmployeeInput="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="employeeName">EmployeeName</label>
+      <input type="text"
+       class="form-control"
+        id="employeeName"
+        name="name"
+        [(ngModel)]="employee.name"
+        #myEmployeeName='ngModel'>
+    </div>
+    <div class="form-group">
+      <label for="employeeAge">EmployeeAge</label>
+      <input type="number" class="form-control" id="employeeAge" name="age" [(ngModel)]="employee.age">
+    </div>
+    <div class="form-group">
+      <label for="title">Employee Title</label>
+      <select class="txt-box" name="employeeType" [(ngModel)]="empTypes" class="form-control" #EmpTyp>
+      <option [value]="empTypes" [disabled]="true">Select Option </option>
+      <option *ngFor="let emp of employeeType" [ngValue]="emp.type">
+      {{emp.type}}
+      </option>
+   </select>
+    </div>
+    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Add" >
+    <!-- <input type="button" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Reset" (click)="resetForm(f)" > -->
+    
+  </form>
+</div>
